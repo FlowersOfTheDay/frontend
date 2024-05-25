@@ -1,5 +1,8 @@
 import streamlit as st
+import dotenv
 from streamlit.logger import get_logger
+
+dotenv.load_dotenv()
 
 LOGGER = get_logger(__name__)
 

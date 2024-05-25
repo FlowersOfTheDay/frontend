@@ -1,4 +1,5 @@
 # app.py
+import os
 import streamlit as st
 import requests
 
@@ -20,7 +21,7 @@ if prompt := st.chat_input("What is up?"):
     print('Hello')
     try:
         response = requests.post(
-            "https://computer-system-team-14.dev.mobilex.kr/api/v1",
+            os.environ.get("FRONTEND_CLIENT_BASE_URL"),
             json={"content": prompt}
         ).json()
         assistant_message = response.get("content", "No response from API")
