@@ -20,11 +20,10 @@ if prompt := st.chat_input("What is up?"):
     # Call the FastAPI endpoint to get the response
     print('Hello')
     try:
-        response = requests.post(
-            os.environ.get("FRONTEND_CLIENT_BASE_URL"),
-            json={"content": prompt}
+        response = requests.get(
+            os.environ.get("FRONTEND_CLIENT_BASE_URL")
         ).json()
-        assistant_message = response.get("content", "No response from API")
+        assistant_message = response.get("name")
     except Exception as e:
         assistant_message = f"Error: {str(e)}"
 
