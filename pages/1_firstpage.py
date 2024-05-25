@@ -13,6 +13,5 @@ st.markdown(
     """
 )
 st.info('Click the Get Started button to start recommed')
-if st.button('Go to Chat'):
-    js_code = "window.location.href = '/chat;"
-    
+
+link = st.link_button('Get Started', url = 'chat' )
