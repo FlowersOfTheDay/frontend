@@ -8,7 +8,7 @@ def run():
     page_title="Flowers of the day"
   )
 
-  st.write("need to implement")
 
 if __name__ == "__main__":
   run()
+
