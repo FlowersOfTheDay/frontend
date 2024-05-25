@@ -6,21 +6,16 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance"
-      ]
+      "extensions": ["ms-python.python", "ms-python.vscode-pylance"]
     }
   },
   "updateContentCommand": "poetry config virtualenvs.in-project true && poetry config virtualenvs.path \"./.venv\" && poetry install",
-  "postAttachCommand": "streamlit run app.py",
+  "postAttachCommand": "poetry run streamlit run app.py",
   "portsAttributes": {
     "8501": {
       "label": "Application",
       "onAutoForward": "openPreview"
     }
   },
-  "forwardPorts": [
-    8501
-  ]
+  "forwardPorts": [8501]
 }
