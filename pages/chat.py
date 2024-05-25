@@ -1,6 +1,8 @@
+# app.py
 import streamlit as st
+import requests
 
-st.title("Flowers of The Day")
+st.title("💬 Flowers of The Day 💐")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -14,7 +16,16 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(prompt)
     st.session_state.messages.append({"role": "user", "content": prompt})
     
-    response = f"Bot: {prompt}"
+    # Call the FastAPI endpoint to get the response
+    try:
+        response = requests.post(
+            "https://computer-system-team-14.dev.mobilex.kr/api/v1/",
+            json={"content": prompt}
+        ).json()
+        assistant_message = response.get("content", "No response from API")
+    except Exception as e:
+        assistant_message = f"Error: {str(e)}"
+
     with st.chat_message("assistant"):
-        st.markdown(response)
-    st.session_state.messages.append({"role": "assistant", "content": response})
+        st.markdown(assistant_message)
+    st.session_state.messages.append({"role": "assistant", "content": assistant_message})
