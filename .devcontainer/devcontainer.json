@@ -6,7 +6,7 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": ["ms-python.python", "ms-python.vscode-pylance"]
+      "extensions": ["ms-python.python", "ms-python.vscode-pylance", "ms-azuretools.vscode-docker"]
     }
   },
   "updateContentCommand": "poetry config virtualenvs.in-project true && poetry config virtualenvs.path \"./.venv\" && poetry install",
