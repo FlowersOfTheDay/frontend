@@ -17,9 +17,10 @@ if prompt := st.chat_input("What is up?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     
     # Call the FastAPI endpoint to get the response
+    print('Hello')
     try:
         response = requests.post(
-            "https://computer-system-team-14.dev.mobilex.kr/api/v1/",
+            "https://computer-system-team-14.dev.mobilex.kr/api/v1",
             json={"content": prompt}
         ).json()
         assistant_message = response.get("content", "No response from API")

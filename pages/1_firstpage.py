@@ -13,10 +13,5 @@ st.markdown(
     """
 )
 st.info('Click the Get Started button to start recommed')
-import streamlit as st
-
-on = st.toggle("If you write your email, we will send recommended flower to your email")
-
-if on:
-    st.text_input("Write your email")
+st.text_input("Write your name")
 st.link_button('Get Started', url = 'chat' )
