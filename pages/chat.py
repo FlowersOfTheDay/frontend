@@ -35,5 +35,4 @@ if prompt := st.chat_input("오늘의 기분을 입력하여 대화를 시작해
 
     with st.chat_message("assistant"):
         st.markdown(assistant_message)
-    st.session_state.messages.append({"role": "assistant", "content": assistant_message})
     st.session_state.conversation_id = conversation_id
