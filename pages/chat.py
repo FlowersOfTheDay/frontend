@@ -24,8 +24,7 @@ if prompt := st.chat_input("오늘의 기분을 입력하여 대화를 시작해
                 os.environ.get("FRONTEND_CLIENT__BASE_URL") + '/chat',
                 json={
                     "chat": prompt,
-                    "context": st.session_state.context,
-                    "conversation_id": st.session_state.conversation_id 
+                    "id": st.session_state.conversation_id 
                 }
             ).json()
             assistant_message = response.get("output")
@@ -37,10 +36,4 @@ if prompt := st.chat_input("오늘의 기분을 입력하여 대화를 시작해
     with st.chat_message("assistant"):
         st.markdown(assistant_message)
     st.session_state.messages.append({"role": "assistant", "content": assistant_message})
-
-    # context에 user와 assistant 메시지 누적
-    st.session_state.context += f"User: {prompt}\nAssistant: {assistant_message}\n"
     st.session_state.conversation_id = conversation_id
-
-# context 확인용
-# st.text_area("Context", st.session_state.context, height=200)
