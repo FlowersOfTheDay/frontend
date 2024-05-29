@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 import dotenv
 from streamlit.logger import get_logger
 
@@ -81,4 +82,5 @@ def run():
 
 
 if __name__ == "__main__":
+  print('be url'+os.environ.get("FRONTEND_CLIENT__BASE_URL"))
   run()
